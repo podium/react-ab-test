@@ -32,7 +32,7 @@ emitter.addActiveVariantListener(function (experimentName, variantName, skipSave
   if (skipSave) {
     return;
   }
-  store.setItem('PUSHTELL-' + experimentName, variantName);
+  store.setItem('PODIUM-' + experimentName, variantName);
 });
 
 export default class Experiment extends Component {
@@ -100,7 +100,7 @@ export default class Experiment extends Component {
     if(typeof activeValue === "string") {
       return activeValue;
     }
-    const storedValue = store.getItem('PUSHTELL-' + this.props.name);
+    const storedValue = store.getItem('PODIUM-' + this.props.name);
     if(typeof storedValue === "string") {
       emitter.setActiveVariant(this.props.name, storedValue, true);
       return storedValue;
